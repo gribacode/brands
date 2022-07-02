@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  client:
+    image: node:16-alpine
+    command: sh -c "npm i && npm start"
+    working_dir: /client
+    volumes:
+      - "${PWD:-./}:/client"
+    ports:
+      - "3000:3000"
+    environment:
+      BUILD_ENV: development
